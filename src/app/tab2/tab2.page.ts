@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { StorageService } from '../services/storage.service';
 
 @Component({
   selector: 'app-tab2',
@@ -7,6 +8,14 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  name: any;
+
+  constructor( private storage: StorageService ) {}
+
+  getName = async () => {
+    this.storage.get('nombre').then(
+        res => this.name = res
+    );
+  }
 
 }

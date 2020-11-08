@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+
+import { StorageService } from '../services/storage.service';
 
 @Component({
   selector: 'app-tab1',
@@ -7,6 +10,15 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  nameForm = new FormGroup({
+    name: new FormControl()
+  });
 
+  constructor( private storage: StorageService ) {}
+
+  save = () => {
+    this.storage.set('nombre', this.nameForm.value.name).then(
+        res => console.log(res)
+    );
+  }
 }
