@@ -1,0 +1,7 @@
+{
+  "name": "simpleStorage",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
